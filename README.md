@@ -539,9 +539,6 @@ Finally, we can see the output, which is a random row of values from the table
  <img src="./images/output.png" width="70%">
 
 ## What to submit
-
-<img src="./images/output.png" width="70%">
-
 1. Make sure to commit all changes on your source control, and make sure your source control is sync to the repository. 
 2. Check your repository link, to see if all the files and answers are included in the repository. 
 3. Submit through italeem, by providing the link to your repository.
