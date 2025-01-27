@@ -538,6 +538,8 @@ Finaly, we can see the output, which is the random 1 row of the values in the ta
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ curl http://localhost:3000/random
 {"id":1,"name":"example1","value":"value1"}
 ```
+ <img src="./images/output.png" width="70%">
+
 ## What to submit
 
 1. Make sure to commit all changes on your source control, and make sure your source control is sync to the repository. 
