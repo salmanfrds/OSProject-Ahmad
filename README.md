@@ -415,7 +415,7 @@ Error connecting to MySQL: Error: getaddrinfo ENOTFOUND mysql-container
 ```
 2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
 Login as root and add table into mysql 
-```sh
+```docker
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker exec -it mysql-container mysql -u root -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -448,7 +448,7 @@ Records: 3  Duplicates: 0  Warnings: 0
 mysql> COMMIT;
 ```
 Established bridgednet between nodejs-container and mysql-container and ping
-```sh
+```docker
 docker network create bridgednet
 docker network connect bridgednet mysql-container
 docker network connect bridgednet nodejs-container
@@ -463,7 +463,7 @@ PING mysql-container (172.20.0.3) 56(84) bytes of data.
 64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=4 ttl=64 time=0.065 ms
 ```
 Even after that, the nodejs application still not able connect to the mysql database with this error
-```sh
+```bash
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker logs nodejs-container
 Server running at http://localhost:3000
 Error connecting to MySQL: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
@@ -497,7 +497,7 @@ Error connecting to MySQL: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not su
 ```  
 The reason of this error is that first, the mysql is using password authentication of caching_sha2_password plugins which is not supported my mysql client.
 so It is really important to change it to mysql_native_password plugins to make it works. and we need to make sure that our version are having those plugins, to do that, we need to check the version, in my case, i use version 8.0 instead of the latest version because the latest one doesnt have the native password plugins
-```sh
+```docker
 mysql> SELECT user, host, plugin FROM mysql.user;
 +------------------+-----------+-----------------------+
 | user             | host      | plugin                |
@@ -529,12 +529,12 @@ mysql> SELECT VERSION();
 1 row in set (0.00 sec)
 ```
 To make sure the latest update, we can restart both containers to update everythings
-```sh
+```bash
 docker restart mysql-container
 docker restart nodejs-container
 ```
 Finaly, we can see the output, which is the random 1 row of the values in the table
-```sh
+```bash
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ curl http://localhost:3000/random
 {"id":1,"name":"example1","value":"value1"}
 ```
