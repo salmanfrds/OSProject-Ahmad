@@ -83,12 +83,12 @@ Look at the TERMINAL tab. Run the following commands and provide the output here
 
 1. Run the command **pwd** . ***(1 mark)***
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ pwd
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ pwd
 /workspaces/OSProject-Ahmad
 ```
 2. Run the command **cat /etc/passwd** . ***(1 mark)*** 
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ cat /etc/passwd
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
@@ -117,7 +117,7 @@ sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
 ```
 3. Run the command **df** . ***(1 mark)*** 
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ df
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ df
 Filesystem     1K-blocks     Used Available Use% Mounted on
 overlay         32847680 10706336  20447244  35% /
 tmpfs              65536        0     65536   0% /dev
@@ -128,7 +128,7 @@ shm                65536        0     65536   0% /dev/shm
 ```
 4. Run the command **du** . ***(1 mark)***
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ sudo du -h / --max-depth=1  # Changed command to limit output length with --max-depth=1
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ sudo du -h / --max-depth=1  # Changed command to limit output length with --max-depth=1
 4.0K    /mnt
 602M    /opt
 0       /sys
@@ -156,13 +156,13 @@ du: cannot access '/proc/13238/fdinfo/3': No such file or directory
 ```
 5. Run the command **ls** . ***(1 mark)***.
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ ls
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ ls
 bin   dev  go    lib    lib64   media  opt   root  sbin  sys  usr  vscode
 boot  etc  home  lib32  libx32  mnt    proc  run   srv   tmp  var  workspaces
 ```
 6. Run the command **ls -asl** . ***(1 mark)***.
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ ls -asl
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ ls -asl
 total 92
 4 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 .
 4 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 ..
@@ -195,14 +195,14 @@ total 92
 ```
 7. Run the command **free -h** . ***(1 mark)***.
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ free -h
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ free -h
               total        used        free      shared  buff/cache   available
 Mem:          7.7Gi       2.1Gi       276Mi        61Mi       5.3Gi       5.2Gi
 Swap:            0B          0B          0B
 ```
 8. Run the command **cat /proc/cpuinfo** . ***(1 mark)***.
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ cat /proc/cpuinfo
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ cat /proc/cpuinfo
 processor       : 0
 vendor_id       : AuthenticAMD
 cpu family      : 25
@@ -282,14 +282,14 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   5376.4 avail Mem
 ```
 10. Run the command **uname -a**. ***(1 mark)***.
 ```bash
-@salmanfrds ➜ /workspaces/OSProject-Ahmad- (main) $ uname -a
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ uname -a
 Linux codespaces-96d9b0 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 11. What is the available free memory in the system. ***(1 mark)***. __Output of question no 7 shows that the available free memory of the system is 5.2 Gigabytes__.
 
 12. What is the available disk space mounted on /workspace. ***(1 mark)***.
 ```
-@salmanfrds ➜ / $ df -h /workspaces
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ df -h /workspaces
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/loop4       32G   11G   20G  35% /workspaces
 
