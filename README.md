@@ -386,11 +386,158 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** __The output is server error, the reason is because the network connection between nodejs-container and mysql-container is yet established so express can not find mysql address and response with server respon with status 5000__.
+```bash
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ curl http://localhost:3000/random
+Server Error
+```
+```bash
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker logs nodejs-container 
+Error connecting to MySQL: Error: getaddrinfo ENOTFOUND mysql-container
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:71:26)
+    --------------------
+    at Protocol._enqueue (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/usr/src/app/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/usr/src/app/index.js:16:12)
+    at Module._compile (internal/modules/cjs/loader.js:1114:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+    at Module.load (internal/modules/cjs/loader.js:979:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:75:12)
+    at internal/main/run_main_module.js:17:47 {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'mysql-container',
+  fatal: true
+}
+```
 2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+Login as root and add table into mysql 
+```sh
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker exec -it mysql-container mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.41 MySQL Community Server - GPL
 
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
 
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
 
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use mydatabase
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> CREATE TABLE mytable (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   name VARCHAR(255) NOT NULL,
+    ->   value VARCHAR(255) NOT NULL
+    -> );
+ERROR 1050 (42S01): Table 'mytable' already exists
+mysql> INSERT INTO mytable (name, value) VALUES ('example1', 'value1'), ('example2', 'value2'), ('example3', 'value3');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> COMMIT;
+```
+Established bridgednet between nodejs-container and mysql-container and ping
+```sh
+docker network create bridgednet
+docker network connect bridgednet mysql-container
+docker network connect bridgednet nodejs-container
+docker network connect mysqlnet nodejs-container
+docker network connect nodejsnet mysql-container
+
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker exec -it nodejs-container ping mysql-container
+PING mysql-container (172.20.0.3) 56(84) bytes of data.
+64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=1 ttl=64 time=0.063 ms
+64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=2 ttl=64 time=0.065 ms
+64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=3 ttl=64 time=0.066 ms
+64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=4 ttl=64 time=0.065 ms
+```
+Even after that, the nodejs application still not able connect to the mysql database with this error
+```sh
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker logs nodejs-container
+Server running at http://localhost:3000
+Error connecting to MySQL: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not support authentication protocol requested by server; consider upgrading MySQL client
+    at Handshake.Sequence._packetToError (/usr/src/app/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Handshake.ErrorPacket (/usr/src/app/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+    at Protocol._parsePacket (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/usr/src/app/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/usr/src/app/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/usr/src/app/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/usr/src/app/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:400:28)
+    at addChunk (internal/streams/readable.js:293:12)
+    --------------------
+    at Protocol._enqueue (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/usr/src/app/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at Connection.connect (/usr/src/app/node_modules/mysql/lib/Connection.js:116:18)
+    at Object.<anonymous> (/usr/src/app/index.js:16:12)
+    at Module._compile (internal/modules/cjs/loader.js:1114:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+    at Module.load (internal/modules/cjs/loader.js:979:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:75:12)
+    at internal/main/run_main_module.js:17:47 {
+  code: 'ER_NOT_SUPPORTED_AUTH_MODE',
+  errno: 1251,
+  sqlMessage: 'Client does not support authentication protocol requested by server; consider upgrading MySQL client',
+  sqlState: '08004',
+  fatal: true
+}
+```  
+The reason of this error is that first, the mysql is using password authentication of caching_sha2_password plugins which is not supported my mysql client.
+so It is really important to change it to mysql_native_password plugins to make it works. and we need to make sure that our version are having those plugins, to do that, we need to check the version, in my case, i use version 8.0 instead of the latest version because the latest one doesnt have the native password plugins
+```sh
+mysql> SELECT user, host, plugin FROM mysql.user;
++------------------+-----------+-----------------------+
+| user             | host      | plugin                |
++------------------+-----------+-----------------------+
+| myuser           | %         | caching_sha2_password |
+| root             | %         | caching_sha2_password |
+| mysql.infoschema | localhost | caching_sha2_password |
+| mysql.session    | localhost | caching_sha2_password |
+| mysql.sys        | localhost | caching_sha2_password |
+| root             | localhost | caching_sha2_password |
++------------------+-----------+-----------------------+
+6 rows in set (0.00 sec)
+
+mysql> 
+mysql> ALTER USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'mypassword';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> FLUS PRIVILEGES;
+
+mysql> COMMIT
+    -> ;
+
+mysql> SELECT VERSION();
++-----------+
+| VERSION() |
++-----------+
+| 8.0.41    |
++-----------+
+1 row in set (0.00 sec)
+```
+To make sure the latest update, we can restart both containers to update everythings
+```sh
+docker restart mysql-container
+docker restart nodejs-container
+```
+Finaly, we can see the output, which is the random 1 row of the values in the table
+```sh
+@salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ curl http://localhost:3000/random
+{"id":1,"name":"example1","value":"value1"}
+```
 ## What to submit
 
 1. Make sure to commit all changes on your source control, and make sure your source control is sync to the repository. 
