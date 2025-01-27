@@ -386,7 +386,7 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __The output is server error, the reason is because the network connection between nodejs-container and mysql-container is yet established so express can not find mysql address and response with server respon with status 5000__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** __The output is a server error. The reason is that the network connection between the nodejs-container and mysql-container has not been established yet, so Express cannot find the MySQL address and responds with a server error (status 500)__.
 ```bash
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ curl http://localhost:3000/random
 Server Error
@@ -447,7 +447,7 @@ Records: 3  Duplicates: 0  Warnings: 0
 
 mysql> COMMIT;
 ```
-Established bridgednet between nodejs-container and mysql-container and ping
+Establish a bridged network between the nodejs-container and mysql-container and attempt to ping.
 ```docker
 docker network create bridgednet
 docker network connect bridgednet mysql-container
@@ -462,7 +462,7 @@ PING mysql-container (172.20.0.3) 56(84) bytes of data.
 64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=3 ttl=64 time=0.066 ms
 64 bytes from mysql-container.bridgednet (172.20.0.3): icmp_seq=4 ttl=64 time=0.065 ms
 ```
-Even after that, the nodejs application still not able connect to the mysql database with this error
+Even after that, the Node.js application is still unable to connect to the MySQL database, and it shows this error.
 ```bash
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ docker logs nodejs-container
 Server running at http://localhost:3000
@@ -495,8 +495,7 @@ Error connecting to MySQL: Error: ER_NOT_SUPPORTED_AUTH_MODE: Client does not su
   fatal: true
 }
 ```  
-The reason of this error is that first, the mysql is using password authentication of caching_sha2_password plugins which is not supported my mysql client.
-so It is really important to change it to mysql_native_password plugins to make it works. and we need to make sure that our version are having those plugins, to do that, we need to check the version, in my case, i use version 8.0 instead of the latest version because the latest one doesnt have the native password plugins
+The reason for this error is that MySQL is using password authentication with the caching_sha2_password plugin, which is not supported by the MySQL client. Therefore, it is important to change it to the mysql_native_password plugin for it to work. Additionally, we need to ensure that our version supports these plugins. In my case, I am using version 8.0 instead of the latest version because the latest one does not support the mysql_native_password plugin.
 ```docker
 mysql> SELECT user, host, plugin FROM mysql.user;
 +------------------+-----------+-----------------------+
@@ -511,7 +510,6 @@ mysql> SELECT user, host, plugin FROM mysql.user;
 +------------------+-----------+-----------------------+
 6 rows in set (0.00 sec)
 
-mysql> 
 mysql> ALTER USER 'myuser'@'%' IDENTIFIED WITH mysql_native_password BY 'mypassword';
 Query OK, 0 rows affected (0.01 sec)
 
@@ -528,12 +526,12 @@ mysql> SELECT VERSION();
 +-----------+
 1 row in set (0.00 sec)
 ```
-To make sure the latest update, we can restart both containers to update everythings
+To ensure the latest updates, we can restart both containers to apply everything.
 ```bash
 docker restart mysql-container
 docker restart nodejs-container
 ```
-Finaly, we can see the output, which is the random 1 row of the values in the table
+Finally, we can see the output, which is a random row of values from the table
 ```bash
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ curl http://localhost:3000/random
 {"id":1,"name":"example1","value":"value1"}
@@ -541,6 +539,8 @@ Finaly, we can see the output, which is the random 1 row of the values in the ta
  <img src="./images/output.png" width="70%">
 
 ## What to submit
+
+<img src="./images/output.png" width="70%">
 
 1. Make sure to commit all changes on your source control, and make sure your source control is sync to the repository. 
 2. Check your repository link, to see if all the files and answers are included in the repository. 
