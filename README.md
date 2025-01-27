@@ -24,7 +24,7 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __https://github.com/SfwanA/OSProject-Ahmad-.git__.
+1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __https://github.com/SfwanA/OSProject-Ahmad.git__.
 2. How many files and folders are in this repository. ***(1 mark)*** __At start, 1 folder and 7 files__.
 
 
