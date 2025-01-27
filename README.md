@@ -1,12 +1,12 @@
 # OSProject Running Containers for Application Development
 
-Group Name: __Fill your team name__. 
+Group Name: Ahmad. 
 
-Section: __Fill your class section__. 
+Section: 6. 
 
 Team Mates:
-1. __Fill name__ and __matric no__
-2. __Fill name__ and __matric no__
+1. __Sofwan bin Aliza__ , __2224483__
+2. __Firdaus Muhammad Salman__ , __2223281__
 3. __Fill name__ and __matric no__
 
 ## Rules
@@ -24,8 +24,8 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __Fill answer here__.
-2. How many files and folders are in this repository. ***(1 mark)*** __Fill answer here__.
+1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __https://github.com/SfwanA/OSProject-Ahmad-.git__.
+2. How many files and folders are in this repository. ***(1 mark)*** __At start, 1 folder and 7 files__.
 
 
 ## Exploring github codespaces
@@ -57,9 +57,14 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Fill answer here__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __Fill answer here__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Linux ubuntu__.
+   
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)***
+__Standard: 2-core vCPU, 4 GB RAM, 32 GB storage.
+Premium: 4-core vCPU, 8 GB RAM, 64 GB storage.__.
+
+3. Why must we commit and sync our current work on source control? ***(1 mark)***
+__To persist changes, prevent data loss, enable collaboration, and ensure the work is backed up and versioned__.
 
 ## Exploring the Terminal
 
@@ -76,23 +81,233 @@ codespace
 
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
-1. Run the command **pwd** . ***(1 mark)*** __Fill answer here__.
-2. Run the command **cat /etc/passwd** . ***(1 mark)*** __Fill answer here__.
-3. Run the command **df** . ***(1 mark)*** __Fill answer here__.
-4. Run the command **du** . ***(1 mark)*** __Fill answer here__.
-5. Run the command **ls** . ***(1 mark)*** __Fill answer here__.
-6. Run the command **ls -asl** . ***(1 mark)*** __Fill answer here__.
-7. Run the command **free -h** . ***(1 mark)*** __Fill answer here__.
-8. Run the command **cat /proc/cpuinfo** . ***(1 mark)*** __Fill answer here__.
-9. Run the command **top** and type **q** to quit. ***(1 mark)*** __Fill answer here__.
-10. Run the command **uname -a**. ***(1 mark)*** __Fill answer here__.
-11. What is the available free memory in the system. ***(1 mark)*** __Fill answer here__.
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** __Fill answer here__.
-13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Fill answer here__.
-14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** __Fill answer here__.
-15. What is the TLB size of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
-16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
-17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __Fill answer here__.
+1. Run the command **pwd** . ***(1 mark)***
+```bash
+@salmanfrds ➜ / $ pwd
+/
+```
+2. Run the command **cat /etc/passwd** . ***(1 mark)*** 
+```bash
+@salmanfrds ➜ / $ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:101:101:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:104:105::/nonexistent:/usr/sbin/nologin
+codespace:x:1000:1000::/home/codespace:/bin/bash
+sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+```
+3. Run the command **df** . ***(1 mark)*** 
+```bash
+@salmanfrds ➜ / $ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+overlay         32847680 10706336  20447244  35% /
+tmpfs              65536        0     65536   0% /dev
+shm                65536        0     65536   0% /dev/shm
+/dev/root       30298176 25448404   4833388  85% /vscode
+/dev/sdc1       46127956 18735720  25016660  43% /tmp
+/dev/loop4      32847680 10706336  20447244  35% /workspaces
+```
+4. Run the command **du** . ***(1 mark)***
+```bash
+@salmanfrds ➜ / $ sudo du -h / --max-depth=1  # Changed command to limit output length with --max-depth=1
+4.0K    /mnt
+602M    /opt
+0       /sys
+1.7G    /home
+140K    /run
+4.0K    /media
+4.0K    /srv
+29M     /var
+6.2G    /usr
+53M     /root
+4.0K    /boot
+0       /dev
+3.3M    /etc
+du: cannot access '/proc/13238/task/13238/fd/4': No such file or directory
+du: cannot access '/proc/13238/task/13238/fdinfo/4': No such file or directory
+du: cannot access '/proc/13238/fd/3': No such file or directory
+du: cannot access '/proc/13238/fdinfo/3': No such file or directory
+0       /proc
+84K     /tmp
+6.0G    /.codespaces
+5.8G    /vscode
+12G     /workspaces
+143M    /go
+32G     /  # Some directories require sudo access to avoid permission errors.
+```
+5. Run the command **ls** . ***(1 mark)***.
+```bash
+@salmanfrds ➜ / $ ls
+bin   dev  go    lib    lib64   media  opt   root  sbin  sys  usr  vscode
+boot  etc  home  lib32  libx32  mnt    proc  run   srv   tmp  var  workspaces
+```
+6. Run the command **ls -asl** . ***(1 mark)***.
+```bash
+@salmanfrds ➜ / $ ls -asl
+total 92
+4 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 .
+4 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 ..
+4 drwxr-xr-x    3 root      root   4096 Jan 20 13:05 .codespaces
+0 -rwxr-xr-x    1 root      root      0 Jan 20 13:05 .dockerenv
+0 lrwxrwxrwx    1 root      root      7 Oct 11 02:03 bin -> usr/bin
+4 drwxr-xr-x    2 root      root   4096 Apr 15  2020 boot
+0 drwxr-xr-x   13 root      root   3900 Jan 24 18:16 dev
+8 drwxr-xr-x    1 root      root   4096 Jan 20 13:06 etc
+4 drwxrwsr-x    3 codespace golang 4096 Dec 12 22:27 go
+8 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 home
+0 lrwxrwxrwx    1 root      root      7 Oct 11 02:03 lib -> usr/lib
+0 lrwxrwxrwx    1 root      root      9 Oct 11 02:03 lib32 -> usr/lib32
+0 lrwxrwxrwx    1 root      root      9 Oct 11 02:03 lib64 -> usr/lib64
+0 lrwxrwxrwx    1 root      root     10 Oct 11 02:03 libx32 -> usr/libx32
+4 drwxr-xr-x    2 root      root   4096 Oct 11 02:03 media
+4 drwxr-xr-x    2 root      root   4096 Oct 11 02:03 mnt
+4 drwxrwsr-x    1 codespace oryx   4096 Jan 20 13:05 opt
+0 dr-xr-xr-x  221 root      root      0 Jan 24 18:16 proc
+8 drwx------    1 root      root   4096 Dec 12 22:29 root
+4 drwxr-xr-x    1 root      root   4096 Jan 24 18:17 run
+0 lrwxrwxrwx    1 root      root      8 Oct 11 02:03 sbin -> usr/sbin
+4 drwxr-xr-x    2 root      root   4096 Oct 11 02:03 srv
+0 dr-xr-xr-x   12 root      root      0 Jan 24 18:13 sys
+4 drwxr-xrwt+   3 root      root   4096 Jan 24 18:17 tmp
+8 drwxr-xr-x    1 root      root   4096 Dec 12 22:13 usr
+8 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 var
+4 drwxr-xr-x    5 root      root   4096 Jan 24 18:14 vscode
+4 drwxr-xrwx+   5 codespace root   4096 Jan 20 13:06 workspaces
+```
+7. Run the command **free -h** . ***(1 mark)***.
+```bash
+@salmanfrds ➜ / $ free -h
+              total        used        free      shared  buff/cache   available
+Mem:          7.7Gi       2.1Gi       276Mi        61Mi       5.3Gi       5.2Gi
+Swap:            0B          0B          0B
+```
+8. Run the command **cat /proc/cpuinfo** . ***(1 mark)***.
+```bash
+@salmanfrds ➜ / $ cat /proc/cpuinfo
+processor       : 0
+vendor_id       : AuthenticAMD
+cpu family      : 25
+model           : 1
+model name      : AMD EPYC 7763 64-Core Processor
+stepping        : 1
+microcode       : 0xffffffff
+cpu MHz         : 3012.612
+cache size      : 512 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 1
+apicid          : 0
+initial apicid  : 0
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext invpcid_single vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm
+bugs            : sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips        : 4890.85
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 48 bits physical, 48 bits virtual
+power management:
+
+processor       : 1
+vendor_id       : AuthenticAMD
+cpu family      : 25
+model           : 1
+model name      : AMD EPYC 7763 64-Core Processor
+stepping        : 1
+microcode       : 0xffffffff
+cpu MHz         : 3006.725
+cache size      : 512 KB
+physical id     : 0
+siblings        : 2
+core id         : 0
+cpu cores       : 1
+apicid          : 1
+initial apicid  : 1
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 13
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl tsc_reliable nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy svm cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext invpcid_single vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves clzero xsaveerptr rdpru arat npt nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload umip vaes vpclmulqdq rdpid fsrm
+bugs            : sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass srso
+bogomips        : 4890.85
+TLB size        : 2560 4K pages
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 48 bits physical, 48 bits virtual
+power management:
+```
+9. Run the command **top** and type **q** to quit. ***(1 mark)***.
+```bash
+top - 18:37:14 up 23 min,  0 users,  load average: 0.14, 0.78, 1.53
+Tasks:  18 total,   1 running,  17 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.4 us,  5.2 sy,  0.0 ni, 89.7 id,  0.2 wa,  0.0 hi,  0.5 si,  0.0 st
+MiB Mem :   7929.6 total,    286.5 free,   2176.8 used,   5466.2 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   5376.4 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                       
+    937 codespa+  20   0   42.0g 907164  50816 S   2.7  11.2   1:17.39 node                                                          
+    611 codespa+  20   0   11.3g  97024  47488 S   1.3   1.2   0:08.67 node                                                          
+    696 codespa+  20   0   11.4g 205308  43648 S   0.3   2.5   0:45.94 node                                                          
+      1 codespa+  20   0    1136    128    128 S   0.0   0.0   0:00.04 docker-init                                                   
+      7 codespa+  20   0    7236   1664   1664 S   0.0   0.0   0:00.02 sleep                                                         
+     35 root      20   0   12196   3608   2688 S   0.0   0.0   0:00.00 sshd                                                          
+    430 codespa+  20   0    2616   1408   1408 S   0.0   0.0   0:00.01 sh                                                            
+    456 root      20   0    2616   1280   1280 S   0.0   0.0   0:00.00 sh                                                            
+    602 codespa+  20   0    2624   1536   1536 S   0.0   0.0   0:00.00 sh                                                            
+   1225 codespa+  20   0   11.1g  71412  44672 S   0.0   0.9   0:03.12 node                                                          
+   1789 root      20   0 1983004  79988  53120 S   0.0   1.0   0:00.22 dockerd                                                       
+```
+10. Run the command **uname -a**. ***(1 mark)***.
+```bash
+@salmanfrds ➜ / $ uname -a
+Linux codespaces-96d9b0 6.5.0-1025-azure #26~22.04.1-Ubuntu SMP Thu Jul 11 22:33:04 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+```
+11. What is the available free memory in the system. ***(1 mark)***. __Output of question no 7 shows that the available free memory of the system is 5.2 Gigabytes__.
+
+12. What is the available disk space mounted on /workspace. ***(1 mark)***.
+```
+@salmanfrds ➜ / $ df -h /workspaces
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/loop4       32G   11G   20G  35% /workspaces
+
+Based on the output, it shows that the available disk space is 20GB, 35% of the disk size is used, and the remaining 65% is free space
+```
+13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Based on the output of question no 10, it shows that version of the Linux kernel is 6.5.0-1025-azure, and the hardware architecture is x86_64.__
+
+14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)***.
+```
+Based on the output of question no 5 and 6, ls means lists all the file in the current directory, while a means all files including the hidden one, s means display the size, and l means provides detailed listing, which includes file permissions, number of links, owner, group, file size, modification date, and filename.
+
+to conclude, ls lists file names, while ls -asl shows detailed info, including hidden files and sizes.
+```
+15. What is the TLB size of the Virtual CPU. ***(1 mark)***. __Based on the output of question no 8, there are two processors, and both processors (processor 0 and processor 1) TLB size is 2560 4K pages__
+
+16. What is the CPU speed of the Virtual CPU. ***(1 mark)***. __Based on the output of question no 8, CPU speed is listed as 3012.612 MHz for processor 0 and 3006.725 MHz for processor 1__
+
+17. What is the top running process that consumes the most CPU cycles. ***(1 mark)***. __Based on the output of question no 9, it shows that the top running process that consumes most of the cpu is process with PID 937 which consume 2.7% of the CPU__
 
 ## Running your own container instance.
 
@@ -152,8 +367,27 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** __Files in Docker containers are not persistent by default. This is because containers use a layered filesystem where changes (e.g., new files) are stored in a temporary writable layer. When a container is stopped, the filesystem persists and can be restarted. However, if the container is removed, this temporary layer is destroyed, and all files are lost.__.
+   
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Let's test it!__.
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker run --detach -it --name container1 debian
+d383117442bdb08e052fd0e742ae3bbfe3e475da79e72409cd17d81c84dfc631
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker run --detach -it --name container2 debia
+n
+dd60617d789dbef4e7b5e5b91ecd85f3dd574e5fbb8910096d3e42af02eef7fc
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker run --detach -it --name container3 debia
+n
+989065aa878315d98e0595d141030de289f3676011dc9950edbaa774d3e882fb
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+989065aa8783   debian    "bash"    12 seconds ago   Up 11 seconds             container3
+dd60617d789d   debian    "bash"    16 seconds ago   Up 15 seconds             container2
+d383117442bd   debian    "bash"    22 seconds ago   Up 21 seconds             container1
+```
+__Based on the above, it can run multiple instances of debian linux!__
 
 ## Running your own container with persistent storage
 
@@ -172,14 +406,29 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
-2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __The file helloworld.txt is owned by root:root inside the container__.
+   
 ```bash
-//use sudo and chown
-sudo chown -R codespace:codespace myroot
-
+@SfwanA ➜ /workspaces/OSProject-Ahmad-/myroot (main) $ docker exec -i -t modest_leakey /bin/bash
+root@c03035df724f:/# ls -l /root
+total 4
+-rw-rw-rw- 1 root root 13 Jan 25 15:40 helloworld.txt
 ```
-*** __Fill answer here__.***
+
+2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
+
+
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad-/myroot (main) $ cd ..
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ ls -l /workspaces/OSProject-Ahmad-/myroot
+total 4
+-rw-rw-rw- 1 root root 14 Jan 25 16:04 helloworld.txt
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ sudo chown -R codespace:codespace myroot
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ ls -l /workspaces/OSProject-Ahmad-/myroot
+total 4
+-rw-rw-rw- 1 codespace codespace 14 Jan 25 16:04 helloworld.txt
+```
+*** __Based on the above, permission can be changed__.***
 
 ## You are on your own, create your own static webpage
 
@@ -205,9 +454,18 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Permissions: drwxr-xr-x , User and Group: 1000:1000__.
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker exec beautiful_stonebraker ls -ld /usr/local/apache2/htdocs
+drwxrwxrwx+ 2 1000 1000 4096 Jan 25 16:15 /usr/local/apache2/htdocs
+```
+2. What port is the apache web server running. ***(1 mark)*** __The Apache web server inside the Docker container is running on port 80__.
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED          STATUS          PORTS                                     NAMES
+fd888d7557bd   httpd     "httpd-foreground"   9 minutes ago    Up 9 minutes    0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   beautiful_stonebraker
+```
+3. What port is open for http protocol on the host machine? ***(1 mark)*** __Based on the bash above, the port open for HTTP protocol on the host machine is 8080__.
 
 ## Create SUB Networks
 
@@ -226,11 +484,36 @@ docker run -itd --net rednet --name c2 busybox sh
 ```
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Fill answer here__.
-2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Fill answer here__.
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Fill answer here__.
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
-5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
+1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __BusyBox is commonly used as a base image for containers that require basic shell/command-line functionality without the overhead of a full OS.
+--name assigns a custom name to a container__.
+
+2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Output below__.
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+7d58b76c0756   bluenet   bridge    local
+5328f37aae3c   bridge    bridge    local
+083048829d19   host      host      local
+9e5f9cabdb39   none      null      local
+415a62dff7b9   rednet    bridge    local
+```
+
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)***
+__Bluenet: 172.18.0.1, Rednet: 172.19.0.1__.
+
+4. What is the network address for the running container c1 and c2? ***(1 mark)***
+__Container c1 (bluenet):
+IP Address: 172.18.0.2
+Subnet: 172.18.0.0/16
+Container c2 (rednet):
+IP Address: 172.19.0.2
+Subnet: 172.19.0.0/16__.
+   
+5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)***
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker exec c1 ping c2
+ping: bad address 'c2'
+```
 
 ## Bridging two SUB Networks
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
@@ -242,8 +525,25 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)***
+__Yes, see below__.
+```bash
+@SfwanA ➜ /workspaces/OSProject-Ahmad- (main) $ docker exec c1 ping c2
+PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=0.127 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.080 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.089 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.075 ms
+64 bytes from 172.20.0.3: seq=4 ttl=64 time=0.089 ms
+64 bytes from 172.20.0.3: seq=5 ttl=64 time=0.065 ms
+64 bytes from 172.20.0.3: seq=6 ttl=64 time=0.098 ms
+64 bytes from 172.20.0.3: seq=7 ttl=64 time=0.075 ms
+64 bytes from 172.20.0.3: seq=8 ttl=64 time=0.079 ms
+64 bytes from 172.20.0.3: seq=9 ttl=64 time=0.077 ms
+```
+2. What is different from the previous ping in the section above? ***(1 mark)***
+__Previous Ping: Failed with ping: bad address 'c2' because c1 and c2 were on isolated networks (bluenet and rednet).
+Current Ping: Succeeds because both containers are now connected to the same network (bridgenet), enabling DNS resolution and direct communication.__.
 
 ## Intermediate Level (10 marks bonus)
 
