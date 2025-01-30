@@ -163,35 +163,13 @@ boot  etc  home  lib32  libx32  mnt    proc  run   srv   tmp  var  workspaces
 6. Run the command **ls -asl** . ***(1 mark)***.
 ```bash
 @salmanfrds ➜ /workspaces/OSProject-Ahmad (main) $ ls -asl
-total 92
-4 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 .
-4 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 ..
-4 drwxr-xr-x    3 root      root   4096 Jan 20 13:05 .codespaces
-0 -rwxr-xr-x    1 root      root      0 Jan 20 13:05 .dockerenv
-0 lrwxrwxrwx    1 root      root      7 Oct 11 02:03 bin -> usr/bin
-4 drwxr-xr-x    2 root      root   4096 Apr 15  2020 boot
-0 drwxr-xr-x   13 root      root   3900 Jan 24 18:16 dev
-8 drwxr-xr-x    1 root      root   4096 Jan 20 13:06 etc
-4 drwxrwsr-x    3 codespace golang 4096 Dec 12 22:27 go
-8 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 home
-0 lrwxrwxrwx    1 root      root      7 Oct 11 02:03 lib -> usr/lib
-0 lrwxrwxrwx    1 root      root      9 Oct 11 02:03 lib32 -> usr/lib32
-0 lrwxrwxrwx    1 root      root      9 Oct 11 02:03 lib64 -> usr/lib64
-0 lrwxrwxrwx    1 root      root     10 Oct 11 02:03 libx32 -> usr/libx32
-4 drwxr-xr-x    2 root      root   4096 Oct 11 02:03 media
-4 drwxr-xr-x    2 root      root   4096 Oct 11 02:03 mnt
-4 drwxrwsr-x    1 codespace oryx   4096 Jan 20 13:05 opt
-0 dr-xr-xr-x  221 root      root      0 Jan 24 18:16 proc
-8 drwx------    1 root      root   4096 Dec 12 22:29 root
-4 drwxr-xr-x    1 root      root   4096 Jan 24 18:17 run
-0 lrwxrwxrwx    1 root      root      8 Oct 11 02:03 sbin -> usr/sbin
-4 drwxr-xr-x    2 root      root   4096 Oct 11 02:03 srv
-0 dr-xr-xr-x   12 root      root      0 Jan 24 18:13 sys
-4 drwxr-xrwt+   3 root      root   4096 Jan 24 18:17 tmp
-8 drwxr-xr-x    1 root      root   4096 Dec 12 22:13 usr
-8 drwxr-xr-x    1 root      root   4096 Jan 20 13:05 var
-4 drwxr-xr-x    5 root      root   4096 Jan 24 18:14 vscode
-4 drwxr-xrwx+   5 codespace root   4096 Jan 20 13:06 workspaces
+total 60
+ 4 drwxrwxrwx+ 5 codespace root       4096 Jan 27 20:34 .
+ 4 drwxr-xrwx+ 5 codespace root       4096 Jan 27 16:08 ..
+ 4 drwxrwxrwx+ 9 codespace root       4096 Jan 27 20:50 .git
+40 -rw-rw-rw-  1 codespace codespace 40953 Jan 27 20:50 README.md
+ 4 drwxrwxrwx+ 2 codespace root       4096 Jan 27 20:24 images
+ 4 drwxrwxrwx+ 3 codespace codespace  4096 Jan 27 16:21 nodejs-app
 ```
 7. Run the command **free -h** . ***(1 mark)***.
 ```bash
