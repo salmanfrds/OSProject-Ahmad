@@ -7,7 +7,7 @@ Section: 6.
 Team Mates:
 1. __Sofwan bin Aliza__ , __2224483__
 2. __Firdaus Muhammad Salman__ , __2223281__
-3. __Fill name__ and __matric no__
+3. __Wan Ahmed Fauzizafry bin Wan Khalid__ , __2221141__
 
 ## Rules
 1. You are allowed to have **3 group** members. *Exception* is allowed **IFF (if and only if)** you are allowed to have 4 group members if you are a **multinational** or a **multigender** group. 
